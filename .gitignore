@@ -1,5 +1,5 @@
- #下面是我的gitignore文件的内容
-           #忽略gitignore文件
-           .gitignore
-           #忽略后缀名为.txt的文件
-           *.txt
+#下面是我的gitignore文件的内容
+#忽略gitignore文件
+.gitignore
+#忽略后缀名为.txt的文件
+*.txt
