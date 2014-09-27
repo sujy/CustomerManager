@@ -2,11 +2,31 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>欢迎!</title>
-     <link rel="stylesheet" href="bootstrap/css/bootstrap.css"></head>
-</head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>欢迎</title>
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="css/main.css"></head>
 <body>
-    <div class="contain"></div>
+    <div class="container">
+        <div class="page-header">
+            <h1 id="show-info"></h1>
+        </div>
+        <div>
+            <button id="getExisit" class="btn btn-primary">获取未推销用户</button>
+            <button id="getPast" class="btn btn-primary">查看已经推销用户</button>
+            <button id="getNew" class="btn btn-primary">添加全新用户</button>
+            <hr></div>
 
+        <div class="table-responsive">
+            <table id="table" class="table table-bordered table-hover table-striped">
+                <thead></thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </div>
+    <script type="text/javascript" src="js/jquery-1.11.1.js"></script>
+    <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/file.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
 </body>
 </html>
