@@ -8,6 +8,11 @@ $(document).ready(function() {
 
    $("#confirm").click(function(event) {
       var id = $("#staff-list").val();
-      window.location.href("main.html"+"?id=" + id);
+      if (id == null) {
+         alert("请选择你的营销号");
+      }
+      if (id != null) {
+         window.location.href("main.html" + "?id=" + id);
+      }
    });
 });
