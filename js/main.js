@@ -6,6 +6,19 @@ function getID() {
     str = str.substr(num + 1);
     return str;
 }
+
+function addListener() {
+    $("#table tbody tr").click(function(event) {
+        $(this, 'tr').each(function(index, tr) {
+            var lines = $('td', tr).map(function(index, td) {
+                return $(td).text();
+            });
+            //This assumes that you have a table with an id of tblPurchaseOrders and that you have two cells of data
+            alert(lines[0] + ' ' + lines[1]);
+        })
+    });
+}
+
 $(document).ready(function() {
     //读取销售员名字
     var list = readFile("员工信息", "员工列表");
@@ -33,16 +46,17 @@ $(document).ready(function() {
                 }
             } else {
                 var tbody = $("#table").children('tbody');
-                var tr = "<tr id=\"clinet" + i + "\"></tr>";
+                var tr = "<tr id=\"client" + i + "\"" + "class=\"client\"></tr>";
                 tbody.append(tr);
                 var info = Existlist[i].split(",");
                 for (var j = 0; j < info.length; j++) {
                     var td = "<td>" + info[j] + "</td>";
-                    var id = "#clinet" + i;
+                    var id = "#client" + i;
                     $(id).append(td);
                 }
             }
         }
+        addListener();
     });
 
     //获取存量客户
@@ -62,20 +76,20 @@ $(document).ready(function() {
                 }
             } else {
                 var tbody = $("#table").children('tbody');
-                var tr = "<tr id=\"clinet" + i + "\"></tr>";
+                var tr = "<tr id=\"client" + i + "\"" + "class=\"client\"></tr>";
                 tbody.append(tr);
                 var info = Existlist[i].split(",");
                 for (var j = 0; j < info.length; j++) {
                     var td = "<td>" + info[j] + "</td>";
-                    var id = "#clinet" + i;
+                    var id = "#client" + i;
                     $(id).append(td);
                 }
             }
         }
     });
-
+    
     //添加新客户
     $("#getNew").click(function(event) {
-        
+
     });
 });
