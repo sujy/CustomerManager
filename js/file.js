@@ -72,13 +72,141 @@ function CreateFile(directory, filename, content) {
    if (directory != "") {
       dir = dir + "/" + directory;
    }
-   tf = fso.CreateTextFile(dir + "/" + filename + ".txt", true);
-   //创建一个文件夹
-   // 写一行，并且带有新行字符。
-   tf.WriteLine(content);
-   // 向文件写三个新行字符。  
-   tf.WriteBlankLines(3);
-   // 写一行。
-   // tf.Write("This is a test.");
-   tf.Close(); //关闭
+
+   if (!fso.FileExists(dir + "/" + filename + ".txt")) {
+      tf = fso.CreateTextFile(dir + "/" + filename + ".txt", true);
+      //创建一个文件夹
+      // 写一行，并且带有新行字符。
+      tf.WriteLine(content);
+      // 向文件写三个新行字符。  
+      //tf.WriteBlankLines(3);
+      // 写一行。
+      // tf.Write("This is a test.");
+      tf.Close(); //关闭
+   } else {
+      tf = fso.OpenTextFile(dir + "/" + filename + ".txt", 8);
+      tf.WriteLine(content);
+      tf.Close();
+   }
 }
+
+//将带!!表头!!的数据转换成二维数组
+function transfertoTwoDimension(list) {
+   var result = new Array();
+   for (var i = 1; i < list.length; i++) {
+      var data = list[i].split(",");
+      result[i - 1] = new Array();
+      for (var j = 0; j < data.length; j++) {
+         result[i - 1][j] = data[j];
+      }
+   }
+   return result;
+
+}
+
+//读取卡表
+function readCard(){
+   var list = readFile("卡表", "卡表");
+   var result = transfertoTwoDimension(list);
+   // alert(result[11][6]);
+   return result;
+}
+
+//按照条件筛选
+//筛选值 最小值 最大值 要筛选的二维数组
+function filter(key, value_small, value_big, passlist) {
+   //read the user data to array
+   var Existlist = readFile("存量客户", "存量客户");
+   var allUser = transfertoTwoDimension(Existlist);
+   var filter_list = [];
+   var result = [];
+
+   //set up the dictionary
+   var dic = {
+      "性别": 1,
+      "出生年月": 5,
+      "灵通卡使用期限": 21,
+      "灵通卡消费次数": 22,
+      "半年日均资产": 23,
+      "房贷金额": 28
+   };
+
+   //确定筛选的数据位置
+   var filter_data = null;
+   for (var i in dic) {
+      if (i == key)
+         filter_data = dic[i];
+   }
+   alert(filter_data);
+   if (filter_data == null)
+      alert("找不到筛选条件");
+
+   //从总数据中找到要符合要求的数据 即没有改变传入数组
+   for (var i = 0; i < passlist.length; i++) {
+      for (var j = 0; j < allUser.length; j++) {
+         if (allUser[j][3] == passlist[i][3]) {
+            filter_list.push(allUser[i])
+         }
+      }
+   }
+   alert(filter_list);
+
+   //开始筛选
+   if (filter_list.length < 1) {
+      alert("搜索不到符合条件的客户");
+   } else {
+      //年龄筛选特别处理
+      if (filter_data == 5) {
+         for (var i = 0; i < filter_list.length; i++) {
+            var birth = filter_list[i][filter_data].split("/");
+            var filter_birth = birth[0] + birth[1] + birth[2];
+
+            if (filter_birth >= value_small &&
+               filter_birth <= value_big) {
+               result.push(filter_list[i]);
+               alert(filter_birth + " " + value_small + " " + value_big)
+            }
+         }
+      } else {
+         //其他情况筛选
+         for (var i = 0; i < filter_list.length; i++) {
+            if (filter_list[i][filter_data] >= value_small &&
+               filter_list[i][filter_data] <= value_big) {
+               result.push(filter_list[i]);
+               alert(filter_list[i][filter_data] + " " + value_small + " " + value_big)
+            }
+         }
+      }
+      alert(result);
+   }
+   return result;
+}
+
+function rewriteFile(directory, filename, content){
+   var fso, tf;
+   var dir = getlocation();
+   fso = new ActiveXObject("Scripting.FileSystemObject");
+   if (!fso.FolderExists(dir + "/" + directory)) {
+      //如果目录不存在，则创建一个目录
+      fso.CreateFolder(dir + "/" + directory);
+   }
+   if (directory != "") {
+      dir = dir + "/" + directory;
+   }
+
+   if (!fso.FileExists(dir + "/" + filename + ".txt")) {
+      tf = fso.CreateTextFile(dir + "/" + filename + ".txt", true);
+      tf.WriteLine(content);
+      tf.Close(); //关闭
+   } else {
+      tf = fso.OpenTextFile(dir + "/" + filename + ".txt", 2);
+      tf.WriteLine(content);
+      tf.Close();
+   }
+}
+
+var list = readFile("存量客户", "存量客户");
+var passlist = transfertoTwoDimension(list);
+// filter("半年日均资产", 0, 1285514, passlist);
+
+readCard();

@@ -15,62 +15,533 @@
             <button id="getExisit" class="btn btn-primary">获取未推销用户</button>
             <button id="getPast" class="btn btn-primary">查看已经推销用户</button>
             <button id="getNew" class="btn btn-primary">添加全新用户</button>
-            <hr></div>
-
-        <div>
-            <table id="table" class="table table-bordered table-hover table-striped">
-                <thead></thead>
-                <tbody></tbody>
-            </table>
+            <hr>
         </div>
-
-        <div class="panel panel-primary">
-            <div class="panel-heading">用户详情</div>
-            <table id="client-head" class="table table-bordered table-hover table-striped">
+        <div class="left">
+            <table id="name_list" class="table table-bordered table-hover table-striped">
                 <thead>
                     <tr>
-                        <th>读证时间</th>
-                        <th>姓名</th>
-                        <th>民族</th>
-                        <th>出生日期</th>
-                        <th>住址</th>
+                       <th>姓名</th>
+                       <th>性别</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr></tr>
                 </tbody>
             </table>
-
-            <div class="panel panel-default" id="user-info">
-                <div class="panel-body">开户信息</div>
-            </div>
-            <div class="form-group">
-                <label for="">证件种类</label>
-                <input type="text" class="form-control" id="identifi_type" placeholder=""></div>
-            <div class="form-group">
-                <label for="">有效期</label>
-                <input type="text" class="form-control" id="" placeholder=""></div>
-            <div class="form-group">
-                <label for="">手机</label>
-                <input type="text" class="form-control" id="cellphone" placeholder=""></div>
-            <div class="form-group">
-                <label for="">固话</label>
-                <input type="text" class="form-control" id="telephone" placeholder=""></div>
-            <div class="form-group">
-                <label for="">邮编</label>
-                <input type="text" class="form-control" id="postcode" placeholder=""></div>
-            <div class="form-group">
-                <label for="">国籍</label>
-                <input type="text" class="form-control" id="nation" placeholder="中国"></div>
-            <div class="form-group">
-                <label for="">工作单位</label>
-                <input type="text" class="form-control" id="workplace" placeholder=""></div>
         </div>
+        <div class="right">
+            <div class="exist_clients panel panel-primary">
+               <div class="panel-heading">
+                  用户基本信息
+               </div><br>
+                <div class="input-group input_name">
+                    <div class="input-group-addon">姓名</div>
+                    <input type="text" class="form-control" id="name" name="name">
+                </div>
+                <div class="input-group input_sex">
+                    <div class="input-group-addon">性别</div>
+                    <input type="text" class="form-control" id="sex" name="sex" >
+                </div>
+                <div class="input-group input_evidence">
+                    <div class="input-group-addon">证据类型</div>
+                    <input type="text" class="form-control" id="evidence" name="evidence" >
+                </div>
+                <div class="input-group input_evidenceNumber">
+                    <div class="input-group-addon">证据号码</div>
+                    <input type="text" class="form-control" id="evidenceNumber" name="evidenceNumber" >
+                </div>
+                <div class="input-group input_phone">
+                    <div class="input-group-addon">联系电话</div>
+                    <input type="text" class="form-control" id="phone" name="phone" >
+                </div>
+                <div class="input-group input_birth">
+                    <div class="input-group-addon">出生日期</div>
+                    <input type="text" class="form-control" id="birth" name="birth" >
+                </div>
 
+                <div class="input-group address_province">
+                    <div class="input-group-addon">住宅地址省份</div>
+                    <input type="text" class="form-control" id="address_province" name="address_province" >
+                </div>
+                <div class="input-group address_city">
+                    <div class="input-group-addon">住宅地址市</div>
+                    <input type="text" class="form-control" id="address_city" name="address_city" >
+                </div>
+                <div class="input-group address_area">
+                    <div class="input-group-addon">住宅地址县（区）</div>
+                    <input type="text" class="form-control" id="address_area" name="address_area" >
+                </div>
+                <div class="input-group address">
+                    <div class="input-group-addon">住宅地址</div>
+                    <input type="text" class="form-control" id="address" name="address" >
+                </div>
+
+                <div class="input-group input_postcode">
+                    <div class="input-group-addon">住宅邮编</div>
+                    <input type="text" class="form-control" id="postcode" name="postcode" >
+                </div>
+                <div class="input-group input_phoneAreaCode">
+                    <div class="input-group-addon">住宅电话区号</div>
+                    <input type="text" class="form-control" id="phoneAreaCode" name="phoneAreaCode" >
+                </div>
+                <div class="input-group input_homePhone">
+                    <div class="input-group-addon">住宅电话号码</div>
+                    <input type="text" class="form-control" id="homePhone" name="homePhone" >
+                </div>
+
+                <div class="input-group input_unit">
+                    <div class="input-group-addon">单位名称</div>
+                    <input type="text" class="form-control" id="unit" name="unit" >
+                </div>
+                <div class="input-group input_unitProvince">
+                    <div class="input-group-addon">单位地址省份</div>
+                    <input type="text" class="form-control" id="unitProvince" name="unitProvince" >
+                </div>
+                <div class="input-group input_unitCity">
+                    <div class="input-group-addon">单位地址市</div>
+                    <input type="text" class="form-control" id="unitCity" name="unitCity" >
+                </div>
+                <div class="input-group input_unitArea">
+                    <div class="input-group-addon">单位地址县（市）</div>
+                    <input type="text" class="form-control" id="unitArea" name="unitArea" >
+                </div>
+                <div class="input-group input_unit_address">
+                    <div class="input-group-addon">单位地址</div>
+                    <input type="text" class="form-control" id="unitAddress" name="unitAddress" >
+                </div>
+
+                <div class="input-group input_unitPostcode">
+                    <div class="input-group-addon">单位邮编</div>
+                    <input type="text" class="form-control" id="unitPostcode" name="unitPostcode" >
+                </div>
+                <div class="input-group input_unitPhoneAreaCode">
+                    <div class="input-group-addon">单位电话区号</div>
+                    <input type="text" class="form-control" id="unitPhoneAreaCode" name="unitPhoneAreaCode" >
+                </div>
+                <div class="input-group input_unitPhone">
+                    <div class="input-group-addon">单位电话号码</div>
+                    <input type="text" class="form-control" id="unitPhone" name="unitPhone" >
+                </div>
+
+                <div class="input-group input_use">
+                    <div class="input-group-addon">灵通卡使用期限</div>
+                    <input type="text" class="form-control" id="use" name="use" >
+                </div>
+                <div class="input-group input_useTime">
+                    <div class="input-group-addon">灵通卡消费次数</div>
+                    <input type="text" class="form-control" id="useTime" name="useTime" >
+                </div>
+                <div class="input-group input_dayMoney">
+                    <div class="input-group-addon">半年日均资产</div>
+                    <input type="text" class="form-control" id="dayMoney" name="dayMoney" >
+                </div>
+
+                <div class="input-group input_limit">
+                    <div class="input-group-addon">审批额度</div>
+                    <input type="text" class="form-control" id="limit" name="limit" >
+                </div>
+                <div class="input-group input_cardMany">
+                    <div class="input-group-addon">贷记卡张数</div>
+                    <input type="text" class="form-control" id="cardMany" name="cardMany" >
+                </div>
+                <div class="input-group input_clientLevel">
+                    <div class="input-group-addon">客户星级</div>
+                    <input type="text" class="form-control" id="clientLevel" name="clientLevel" >
+                </div>
+
+                <div class="input-group input_want">
+                    <div class="input-group-addon">要客标记</div>
+                    <input type="text" class="form-control" id="want" name="want" >
+                </div>
+                <div class="input-group input_houseLoan">
+                    <div class="input-group-addon">房贷金额</div>
+                    <input type="text" class="form-control" id="houseLoan" name="houseLoan" >
+                </div>
+                <div class="input-group input_today">
+                    <div class="input-group-addon">营销日期</div>
+                    <input type="text" class="form-control" id="today" name="today" >
+                </div>
+                <div class="input-group input_flag">
+                    <div class="input-group-addon">客户反馈标识</div>
+                    <input type="text" class="form-control" id="flag" name="flag" >
+                </div>
+                <div class="input-group input_remark">
+                    <div class="input-group-addon">营销备注</div>
+                    <input type="text" class="form-control" id="remark" name="remark" >
+                </div>
+            </div>
+
+            <div class="panel panel-primary">
+              <div class="panel-heading">开户</div>
+                <div class="input-group create_idType">
+                    <div class="input-group-addon">证据类型</div>
+                    <input type="text" class="form-control" id="idType" name="idType" >
+                </div>
+                <div class="input-group create_idLimit">
+                    <div class="input-group-addon">有效期</div>
+                    <input type="text" class="form-control" id="idLimit" name="idLimit" >
+                </div>
+                <div class="input-group create_cellPhone">
+                    <div class="input-group-addon">手机</div>
+                    <input type="text" class="form-control" id="cellPhone" name="cellPhone" >
+                </div>
+
+                <div class="input-group create_telephone">
+                    <div class="input-group-addon">固话</div>
+                    <input type="text" class="form-control" id="telephone" name="telephone" >
+                </div>
+                <div class="input-group create_postcode">
+                    <div class="input-group-addon">邮编</div>
+                    <input type="text" class="form-control" id="create_postcode" name="create_postcode" >
+                </div>
+                <div class="input-group create_nation">
+                    <div class="input-group-addon">国籍</div>
+                    <input type="text" class="form-control" id="nation" name="nation" >
+                </div>
+                
+                <div class="input-group create_workplace">
+                    <div class="input-group-addon">工作单位</div>
+                    <input type="text" class="form-control" id="workplace" name="workplace" >
+                </div>
+            </div>
+            <div class="panel panel-primary">
+                <div class="panel-heading">信用卡填表资料</div>
+                <div class="input-group card_workAddress">
+                    <div class="input-group-addon">单位地址</div>
+                    <input type="text" class="form-control" id="card_workAddress" name="card_workAddress" >
+                </div>
+                <div class="input-group card_postcode">
+                    <div class="input-group-addon">单位邮编</div>
+                    <input type="text" class="form-control" id="card_postcode" name="card_postcode" >
+                </div>
+                <div class="input-group card_workphone">
+                    <div class="input-group-addon">单位电话</div>
+                    <input type="text" class="form-control" id="card_workphone" name="card_workphone" >
+                </div>
+
+                <div class="input-group card_email">
+                    <div class="input-group-addon">Email</div>
+                    <input type="text" class="form-control" id="card_email" name="card_email" >
+                </div>
+                <div class="input-group card_primarySchool">
+                    <div class="input-group-addon">小学</div>
+                    <input type="text" class="form-control" id="card_primarySchool" name="card_primarySchool" >
+                </div>
+                <div class="input-group card_salary">
+                    <div class="input-group-addon">年薪</div>
+                    <input type="text" class="form-control" id="card_salary" name="card_salary" >
+                </div>
+
+            <div class="panel panel-primary">
+                <div class="panel-heading">联系人一</div>
+                <div class="input-group card_person1Name">
+                    <div class="input-group-addon">联系人一姓名</div>
+                    <input type="text" class="form-control" id="card_person1Name" name="card_person1Name" >
+                </div>
+                <div class="input-group card_person1Relation">
+                    <div class="input-group-addon">关系</div>
+                    <input type="radio" value="5" name="relation1"><span>夫妻</span>
+                    <input type="radio" value="1" name="relation1"><span>父子</span>
+                    <input type="radio" value="2" name="relation1"><span>母子</span>
+                    <input type="radio" value="3" name="relation1"><span>兄弟姐妹</span>
+                </div>
+                <div class="input-group card_person1Phone">
+                    <div class="input-group-addon">联系人一手机</div>
+                    <input type="text" class="form-control" id="card_person1Phone" name="card_person1Phone" >
+                </div>
+                <div class="input-group card_person1Telephone">
+                    <div class="input-group-addon">联系人一固话</div>
+                    <input type="text" class="form-control" id="card_person1Telephone" name="card_person1Telephone" >
+                </div>
+                <div class="input-group card_person1TelephoneCode">
+                    <div class="input-group-addon">联系人一固话区号</div>
+                    <input type="text" class="form-control" id="card_person1TelephoneCode" name="card_person1TelephoneCode" >
+                </div>
+                <div class="input-group card_person1Address">
+                    <div class="input-group-addon">联系人一地址</div>
+                    <input type="text" class="form-control" id="card_person1Address" name="card_person1Address" >
+                </div>
+            </div>
+
+            <div class="panel panel-primary">
+                <div class="panel-heading">联系人二</div>
+                <div class="input-group card_person2Name">
+                    <div class="input-group-addon">联系人二姓名</div>
+                    <input type="text" class="form-control" id="card_person2Name" name="card_person2Name" >
+                </div>
+                <div class="input-group card_person2Relation">
+                    <div class="input-group-addon">关系</div>
+                    <input type="radio" value="9" name="relation2"><span>同事</span>
+                    <input type="radio" value="6" name="relation2"><span>同学</span>
+                    <input type="radio" value="8" name="relation2"><span>朋友</span>
+                </div>
+                <div class="input-group card_person2Phone">
+                    <div class="input-group-addon">联系人二手机</div>
+                    <input type="text" class="form-control" id="card_person2Phone" name="card_person2Phone" >
+                </div>
+                <div class="input-group card_person2Telephone">
+                    <div class="input-group-addon">联系人二固话</div>
+                    <input type="text" class="form-control" id="card_person2Telephone" name="card_person2Telephone" >
+                </div>
+                <div class="input-group card_person2TelephoneCode">
+                    <div class="input-group-addon">联系人二固话区号</div>
+                    <input type="text" class="form-control" id="card_person2TelephoneCode" name="card_person2TelephoneCode" >
+                </div>
+                <div class="input-group card_person2Address">
+                    <div class="input-group-addon">联系人二地址</div>
+                    <input type="text" class="form-control" id="card_person2Address" name="card_person2Address" >
+                </div>
+            </div>
+               <div class="input-group card_inTime">
+                    <div class="input-group-addon">进单位时间</div>
+                    <input type="text" class="form-control" id="card_inTime" name="card_inTime" >
+                </div>
+                <div class="input-group card_sellCode">
+                    <div class="input-group-addon">营销代码</div>
+                    <input type="text" class="form-control" id="card_sellCode" name="card_sellCode" >
+                </div>
+                <div class="input-group card_liveTime">
+                    <div class="input-group-addon">入住住所时间</div>
+                    <input type="text" class="form-control" id="card_liveTime" name="card_liveTime" >
+                </div>
+
+                <div class="panel panel-primary">
+                     <div class="panel-heading">个人情况</div>
+                     <div class="input-group" id="person_education">
+                         <div class="input-group-addon">学历</div>
+                         <input type="radio" value="1" name="person_education"> 
+                         <span>博士</span>
+                         <input type="radio" value="2" name="person_education"> 
+                         <span>硕士</span>
+                         <input type="radio" value="3" name="person_education"> 
+                         <span>本科</span>
+                         <input type="radio" value="4" name="person_education"> 
+                         <span>专科</span>
+                         <input type="radio" value="5" name="person_education"> 
+                         <span>高中</span>
+                     </div>
+                     <div class="input-group" id="person_marriage">
+                         <div class="input-group-addon">婚姻状况</div>
+                         <input type="radio" value="1" name="person_marriage"> 
+                         <span>未婚</span>
+                         <input type="radio" value="2" name="person_marriage"> 
+                         <span>已婚</span>
+                         <input type="radio" value="6" name="person_marriage"> 
+                         <span>其他</span>
+                     </div>
+                     <div class="input-group" id="person_apartment">
+                         <div class="input-group-addon">住宅</div>
+                         <input type="radio" value="1" name="person_apartment"> 
+                         <span>自有住房</span>
+                         <input type="radio" value="2" name="person_apartment"> 
+                         <span>贷款购房</span>
+                         <input type="radio" value="3" name="person_apartment"> 
+                         <span>租房</span>
+                         <input type="radio" value="4" name="person_apartment"> 
+                         <span>其他</span>
+                     </div>
+                     <div class="input-group" id="person_workplace">
+                         <div class="input-group-addon">单位</div>
+                         <input type="radio" value="10" name="person_workplace"> 
+                         <span>国有</span>
+                         <input type="radio" value="20"  name="person_workplace"> 
+                         <span>集体</span>
+                         <input type="radio" value="60"  name="person_workplace"> 
+                         <span>私营</span>
+                         <input type="radio" value="50"  name="person_workplace"> 
+                         <span>股份</span>
+                         <input type="radio" value="90"  name="person_workplace"> 
+                         <span>民营</span>
+                         <input type="radio" value="190"  name="person_workplace"> 
+                         <span>其他</span>
+                     </div>
+                      <div class="input-group" id="person_industry">
+                         <div class="input-group-addon">行业</div>
+                         <input type="radio" value="14" name="person_industry"> 
+                         <span>农牧</span>
+                         <input type="radio" value="10"  name="person_industry"> 
+                         <span>邮电</span>
+                         <input type="radio" value="7"  name="person_industry"> 
+                         <span>房产</span>
+                         <input type="radio" value="12"  name="person_industry"> 
+                         <span>教卫</span>
+                         <input type="radio" value="5"  name="person_industry"> 
+                         <span>工业</span>
+                         <input type="radio" value="16" name="person_industry"> 
+                         <span>银行</span>
+                         <input type="radio" value="1"  name="person_industry"> 
+                         <span>证券</span>
+                         <input type="radio" value="6"  name="person_industry"> 
+                         <span>保险</span>
+                         <input type="radio" value="3"  name="person_industry"> 
+                         <span>商业</span>
+                         <input type="radio" value="4"  name="person_industry"> 
+                         <span>机关团体</span>
+                         <input type="radio" value="9"  name="person_industry"> 
+                         <span>其他</span>
+                     </div>
+                     <div class="input-group" id="person_job">
+                         <div class="input-group-addon">职业</div>
+                         <input type="radio" value="1" name="person_job"> 
+                         <span>公务</span>
+                         <input type="radio" value="2" name="person_job"> 
+                         <span>事业</span>
+                         <input type="radio" value="6" name="person_job"> 
+                         <span>工人</span>
+                         <input type="radio" value="7" name="person_job"> 
+                         <span>农民</span>
+                         <input type="radio" value="4" name="person_job"> 
+                         <span>军人</span>
+                         <input type="radio" value="3" name="person_job"> 
+                         <span>职员</span>
+                         <input type="radio" value="30" name="person_job"> 
+                         <span>私人业主</span>
+                         <input type="radio" value="17" name="person_job"> 
+                         <span>学生</span>
+                         <input type="radio" value="5" name="person_job"> 
+                         <span>自由</span>
+                         <input type="radio" value="8" name="person_job"> 
+                         <span>其他</span>
+                         <input type="radio" value="29" name="person_job"> 
+                         <span>无</span>
+                     </div>
+                      <div class="input-group" id="person_post">
+                         <div class="input-group-addon">职务</div>
+                         <input type="radio" value="3" name="person_post"> 
+                         <span>负责人</span>
+                         <input type="radio" value="4" name="person_post"> 
+                         <span>总经理</span>
+                         <input type="radio" value="5" name="person_post"> 
+                         <span>经理</span>
+                         <input type="radio" value="6" name="person_post"> 
+                         <span>职员</span>
+                         <input type="radio" value="0" name="person_post"> 
+                         <span>其他</span>
+                     </div>
+                      <div class="input-group" id="person_info">
+                         <div class="input-group-addon">资料</div>
+                         <input type="radio" value="收入证明" name="person_info"> 
+                         <span>收入证明</span>
+                         <input type="radio" value="完税证明" name="person_info"> 
+                         <span>完税证明</span>
+                         <input type="radio" value="工作证明" name="person_info"> 
+                         <span>工作证明</span>
+                         <input type="radio" value="房产证" name="person_info"> 
+                         <span>房产证</span>
+                         <input type="radio" value="行驶证" name="person_info"> 
+                         <span>行驶证</span>
+                         <input type="radio" value="其他" name="person_info"> 
+                         <span>其他</span>
+                     </div>
+                 </div>
+                                
+                <div class="panel panel-primary" id="card_select">
+                     <div class="panel-heading">选择单卡或者组合</div>
+                     <div class="input-group">
+                         <select class="form-control" id="card_info">
+                             <option disabled selected>请选择卡种</option>
+                         </select>
+                         <button class="btn-primary" id="add_card">确认添加</button>
+                         <button class="btn-primary" id="free_card">选择自由宝</button>
+                         <div>
+                             <table class="table table-bordered table-hover table-striped" id="show_cards">
+                                 <thead>
+                                     <tr>
+                                         <th>名称</th>
+                                         <th>编号</th>
+                                     </tr>
+                                 </thead>
+                                 <tbody></tbody>
+                             </table>
+                         </div>
+                     </div>
+                 </div>
+            </div>
+
+            <div class="panel panel-primary">
+              <div class="panel-heading">信用卡补充资料</div>
+              <div class="input-group cardadd_salary">
+                <div class="input-group-addon">是否代发工资客户</div>
+                <input type="radio" value="是" name="cardadd_salary"><span>是</span>
+                <input type="radio" value="否" name="cardadd_salary"><span>否</span>
+              </div>
+              <div class="input-group cardadd_buyCar">
+                <div class="input-group-addon">是否自购车辆</div>
+                <input type="radio" value="是" name="cardadd_buyCar"><span>是</span>
+                <input type="radio" value="否" name="cardadd_buyCar"><span>否</span>
+              </div>
+              <div class="input-group cardadd_useYear">
+                <div class="input-group-addon">已用年限</div>
+                <input type="radio" value="1年内" name="cardadd_useYear"><span>1年内</span>
+                <input type="radio" value="1年" name="cardadd_useYear"><span>1年</span>
+                <input type="radio" value="2年" name="cardadd_useYear"><span>2年</span>
+                <input type="radio" value="3年" name="cardadd_useYear"><span>3年</span>
+                <input type="radio" value="4年以上" name="cardadd_useYear"><span>4年以上</span>
+              </div>
+
+              <div class="input-group cardadd_carNumber">
+                <div class="input-group-addon">车牌号码</div>
+                <input type="text" class="form-control" id="cardadd_carNumber" name="cardadd_carNumber">
+              </div>
+              <div class="input-group cardadd_engineNumber">
+                <div class="input-group-addon">发动机号</div>
+                <input type="text" class="form-control" id="cardadd_engineNumber" name="cardadd_engineNumber">
+              </div>
+              <div class="input-group cardadd_carBrand">
+                <div class="input-group-addon">汽车品牌</div>
+                <input type="text" class="form-control" id="cardadd_carBrand" name="cardadd_carBrand">
+              </div>
+
+              <div class="input-group cardadd_carDist">
+                <div class="input-group-addon">车辆识别代码</div>
+                <input type="text" class="form-control" id="cardadd_carDist" name="cardadd_carDist">
+              </div>
+              <div class="input-group cardadd_vipNumber1">
+                <div class="input-group-addon">联名会员编号：(申请人保必填)</div>
+                <input type="text" class="form-control" id="cardadd_vipNumber1" name="cardadd_vipNumber1">
+              </div>
+              <div class="input-group cardadd_vipNumber2">
+                <div class="input-group-addon">联名会员编号：(申请粤通必填)</div>
+                <input type="text" class="form-control" id="cardadd_vipNumber2" name="cardadd_vipNumber2">
+              </div>
+
+              <div class="input-group cardadd_hasOtherCard">
+                <div class="input-group-addon">有否他行信用卡：</div>
+                <input type="radio" value="有" name="cardadd_hasOtherCard"><span>有</span>
+                <input type="radio" value="否" name="cardadd_hasOtherCard"><span>否</span>
+              </div>
+              <div class="input-group cardadd_otherCards">
+                <div class="input-group-addon">已有的他行信用卡：</div>
+                <input type="checkbox" value="中行"><span>中行</span>
+                <input type="checkbox" value="农行"><span>农行</span>
+                <input type="checkbox" value="建行"><span>建行</span>
+                <input type="checkbox" value="交行"><span>交行</span>
+                <input type="checkbox" value="招行"><span>招行</span>
+                <input type="checkbox" value="其他"><span>其他</span>
+              </div>
+
+              <div class="input-group cardadd_hasCardsC">
+                <div class="input-group-addon">持有信用卡数:家</div>
+                <input type="text" class="form-control" id="cardadd_hasCardsC" name="cardadd_hasCardsC">
+              </div>
+              <div class="input-group cardadd_hasCardsM">
+                <div class="input-group-addon">持有信用卡数:张</div>
+                <input type="text" class="form-control" id="cardadd_hasCardsM" name="cardadd_hasCardsM">
+              </div>
+              <div class="input-group cardadd_hasCardsA">
+                <div class="input-group-addon">持有信用卡数:万</div>
+                <input type="text" class="form-control" id="cardadd_hasCardsA" name="cardadd_hasCardsA">
+              </div>
+            </div>
+            <button id="saveAsSell" class="btn btn-default">已营销</button>
+            <button id="update" class="btn btn-primary">更新</button>
+            <button id="saveAsTwo" class="btn btn-success">保存成两张表</button>
+        </div>
     </div>
     <script type="text/javascript" src="js/jquery-1.11.1.js"></script>
     <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="js/file.js"></script>
     <script type="text/javascript" src="js/main.js"></script>
+    <script type="text/javascript" src="js/card.js"></script>
 </body>
 </html>

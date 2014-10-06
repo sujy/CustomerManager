@@ -1,0 +1,60 @@
+* {
+	padding: 0;
+	margin-top: 0;
+}
+
+.left {
+	width: 15%;
+	height: 300px;
+	border: solid 1px gray;
+	float: left;
+	padding: 10px;
+	overflow: hidden;
+}
+
+.right {
+	width: 84%;
+	height: auto;
+	padding: 10px;
+	border: solid 1px gray;
+	float: right;
+}
+
+.panel {
+	padding: 10px 10px 0 10px;
+}
+
+
+.input_name, .input_evidenceNumber, .input_postcode, .address_province, 
+.input_unitProvince, .input_unitPostcode, .input_use, .input_limit, .input_want,
+.create_idType, .create_telephone, .card_workAddress, .card_email,
+.card_person1Phone, .card_person2Phone, .card_inTime, .cardadd_carNumber,
+.cardadd_carDist, .cardadd_hasCardsC, .input_flag{
+	width: 30%;
+	/*float：left;*/
+	display: inline-table;
+}
+
+.input_sex, .input_phone, .input_phoneAreaCode, .address_city, 
+.input_unitCity, .input_unitPhoneAreaCode, .input_useTime, .input_cardMany, .input_houseLoan,
+.create_idLimit, .create_postcode, .card_postcode, .card_primarySchool,
+.card_person1Telephone, .card_person2Telephone, .card_sellCode, .cardadd_engineNumber, 
+.cardadd_vipNumber1, .cardadd_hasCardsM, .input_today, .input_remark{
+	width: 30%;
+	/*float: left;*/
+	display: inline-table;
+	margin-left: 3%;
+}
+
+.input_evidence, .input_birth, .input_homePhone, .address_area, 
+.input_unitArea, .input_unitPhone, .input_dayMoney, .input_clinetLevel, .input_email,
+.create_cellPhone, .create_nation, .card_workphone, .card_salary,
+.card_person1TelephoneCode, .card_person2TelephoneCode, .card_liveTime, .cardadd_carBrand, 
+.cardadd_vipNumber2, .cardadd_hasCardsA{
+	width: 30%;
+	margin-left: 3%;
+	/*float: right;*/
+	display: inline-table;
+}
+
+
