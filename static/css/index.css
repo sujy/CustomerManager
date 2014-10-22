@@ -1,0 +1,13 @@
+.input-group {
+    margin-top: 10px;
+}
+
+#login {
+    margin-top: 20px;
+}
+.pic {
+    position: fixed;
+    right: 0px;
+    top:50px;
+    height: 100px;
+}

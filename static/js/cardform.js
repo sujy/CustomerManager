@@ -143,9 +143,9 @@ $(document).ready(function() {
     function writeInfo(infoArr){
         str = "";
         str += infoArr[0] + ",";
-        str += infoArr[1] + ",";
-        str += infoArr[2] + ",";
-        str += "" + ",";
+        // str += infoArr[1] + ",";
+        // str += infoArr[2] + ",";
+        // str += "" + ",";
         str += infoArr[3] + ",";
         str += "00008" + ",";
         str += infoArr[4] + ",";
@@ -158,7 +158,7 @@ $(document).ready(function() {
         str += infoArr[9] + ",";
         str += infoArr[10] + ",";
         str += infoArr[11] + ",";
-        str += " " + ",";
+        str += " " + ",0,";
         str += infoArr[12] + ",";
         str += infoArr[13] + ",";
         str += "" + ",";
@@ -167,7 +167,14 @@ $(document).ready(function() {
         str += "0,3,0,5,0,2,,0,0,0,,1,,,," ;
         str += infoArr[15] + ",";
         str += infoArr[16] + ",";
-        str += "1,,0,,,,,,0,,,,,,";
+        var getMethod = "";
+        $(".card_getMethod input").each(function() {
+            if ($(this).is(":checked")) {
+               getMethod = $(this).val();
+            }
+        });
+        str += getMethod + ",";
+        str += ",0,,,,,,0,,,,,,";
         str += infoArr[17] + ",";
         str += infoArr[18] + ",";
         str += infoArr[19] + ",";
@@ -198,6 +205,8 @@ $(document).ready(function() {
                 CreateFile("用户表和卡表", filename, content);
             }
         }
+
+        alert("保存卡表成功！");
 
     });
 });
