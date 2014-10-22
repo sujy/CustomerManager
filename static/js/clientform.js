@@ -1,4 +1,71 @@
 $(document).ready(function() {
+
+    var valueDic = {
+        "夫妻": 5,
+        "父子": 1,
+        "母子": 2,
+        "兄弟姐妹": 3,
+        "同学": 6,
+        "同事": 9,
+        "朋友": 8,
+        "未婚": 1,
+        "已婚": 2,
+        "其他婚姻状况": 6,
+        "博士": 1,
+        "硕士": 2,
+        "本科": 3,
+        "专科": 4,
+        "高中": 5,
+        "自有住房": 1,
+        "贷款购房": 2,
+        "租房": 3,
+        "其他住宅状况": 4,
+        "国有": 10,
+        "集体": 20,
+        "私营": 60,
+        "民营": 90,
+        "股份": 50,
+        "其他单位": 190,
+        "农牧": 14,
+        "邮电": 10,
+        "房产": 7,
+        "教卫": 12,
+        "工业": 5,
+        "银行": 16,
+        "证券": 1,
+        "保险": 6,
+        "商业": 3,
+        "机关团体": 4,
+        "其他行业": 9,
+        "公务": 1,
+        "事业": 2,
+        "工人": 6,
+        "农民": 7,
+        "军人": 4,
+        "职员": 3,
+        "私人业主": 30,
+        "学生": 17,
+        "自由": 5,
+        "其他职业": 8,
+        "无": 29,
+        "负责人": 3,
+        "总经理": 4,
+        "经理": 5,
+        "职员": 6,
+        "其他职务": 0,
+        "代发工资客户": 1,
+        "非代发工资客户": 2,
+        "有自购车": 0,
+        "没有自购车": 1,
+        "1年内": 1,
+        "1年": 2,
+        "2年": 3,
+        "3年": 4,
+        "4年以上": 5,
+        "有他行信用卡": 0,
+        "没有他行信用卡": 1,
+    };
+
     function splitID() {
         var text = $("#show-info").text().split(" ");
         var id = text[1];
@@ -20,7 +87,7 @@ $(document).ready(function() {
         Month = day.getMonth() + 1;
         Day = day.getDate();
         CurrentDate += Year;
-        if (Month >= 10) {
+        if (parseInt(Month) >= 10) {
             CurrentDate += Month;
         } else {
             CurrentDate += "0" + Month;
@@ -36,10 +103,12 @@ $(document).ready(function() {
     function getValue(id) {
         var flag = false;
         var result;
+        // alert($(id + " :input").next());
+        // alert($(id + " :input").html());
         $(id + " :input:radio").each(function() {
-            // alert($(this).html());
             if ($(this).is(':checked')) {
-                result = $(this).val();
+                result = valueDic[$(this).next().text()];
+                // alert(result + $(this).next().text());
                 flag = true;
             }
         });
@@ -48,17 +117,21 @@ $(document).ready(function() {
         } else {
             return result;
         }
+        // return 0
     }
 
-    function dealWithDate(str){
+    function dealWithDate(str) {
         var arr = str.split("/");
-        if(arr[1] < 10) {
-            arr[1] = "0" + arr[1];
+        var month = parseInt(arr[1]);
+        var day = parseInt(arr[2]);
+
+        if (month >= 10) {} else {
+            month = "0" + month;
         }
-        if(arr[2] < 10) {
-            arr[2] + arr[2]
+        if (day >= 10) {} else {
+            day = "0" + day;
         }
-        var result = arr[0] + "-" + arr[1] + "-" + arr[2];
+        var result = arr[0] + "-" + month + "-" + day;
         return result;
     }
 
@@ -105,8 +178,8 @@ $(document).ready(function() {
         //15营销代码3
         info.push(id.substr(13, 7).toString());
         //16出生日期
-        var birth = $("#birth").attr('value');
-        info.push(dealWithDate(birth));
+        // var birth = $("#birth").attr('value');
+        info.push($("#birth").attr('value'));
         //17婚姻状况
         info.push(getValue("#person_marriage"));
         //18受教育程度
@@ -135,7 +208,7 @@ $(document).ready(function() {
         //29电子邮箱
         info.push($("#card_email").attr('value'));
         //30工作单位名称
-        info.push($("#workplace").attr('value'));
+        info.push($("#unit").attr('value'));
         //31职务
         info.push(getValue("#person_post"));
         //32单位电话区号
@@ -155,7 +228,7 @@ $(document).ready(function() {
         //39进入现单位工作时间
         var worktime = $("#card_liveTime").attr('value');
         var worktimeDeal = dealWithDate(worktime).split("-");
-        info.push(worktimeDeal[0]+worktimeDeal[1]);
+        info.push(worktimeDeal[0] + worktimeDeal[1]);
         //40本人年收入
         info.push($("#card_salary").attr('value'));
         //41单位性质
@@ -167,9 +240,9 @@ $(document).ready(function() {
         //44是否持有他行信用卡
         info.push(getValue(".cardadd_hasOtherCard"));
         //45已持有他行信用卡
-        if(getValue(".cardadd_hasOtherCard") == 0){
+        if (getValue(".cardadd_hasOtherCard") == 0) {
             info.push("000001");
-        }else {
+        } else {
             info.push("");
         }
         //46自购车状况
@@ -189,7 +262,7 @@ $(document).ready(function() {
         //53联系人2姓名
         info.push($("#card_person2Name").attr('value'));
         //54联系人2与主卡申请人关系
-         info.push(getValue(".card_person2Relation"));
+        info.push(getValue(".card_person2Relation"));
         //55联系人2手机
         info.push($("#card_person2Phone").attr('value'));
         //56联系人2联系电话区号
@@ -203,6 +276,7 @@ $(document).ready(function() {
         info.push(156);
 
         return info;
+
     }
 
     function writeAllInfo(inArr) {
@@ -227,7 +301,7 @@ $(document).ready(function() {
         str += ",";
         str += inArr[16] + ",";
         str += inArr[17] + ",";
-        str += inArr[18] + ",";        
+        str += inArr[18] + ",";
         str += inArr[19] + ",";
         str += inArr[20] + ",";
         str += inArr[21] + ",";
@@ -285,14 +359,101 @@ $(document).ready(function() {
         str += ",,,,,,,,,,,,,,,,,,,,,,0,0,000,";
 
 
-        alert(str);
-
         filename = getNowFormatDate() + $("#evidenceNumber").attr("value") + "-客户";
         rewriteFile("用户表和卡表", filename, str);
-        alert("输出成功!");
+        alert("保存用户表成功!");
     }
 
+    function checkAllInfo() {
+        var flag = false;
+        $('.exist_clients :input:text').each(function(index, el) {
+            if ($(this).attr('value') == "") {
+                if($(this).attr('id') == "remark"){
+                }else {
+                    alert("请填写" + $(this).prev().text());
+                    flag = true;
+                }
+                
+            }
+        });
+        $('.cardInfomation :input:text').each(function(index, el) {
+            if ($(this).attr('value') == "") {
+                alert("请填写" + $(this).prev().text());
+                flag = true;
+            }
+        });
+        if (flag == true) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    function updateInfoBeforeSave() {
+        //处理用户基本信息
+        var $inputText = $(".right :input:text");
+        var text_count = $inputText.length;
+        var content = [];
+        $inputText.each(function(index, el) {
+            content.push($(this).val());
+        });
+
+        var $inputRadio = $(".right :input:radio");
+        var radio_count = 0;
+        $inputRadio.each(function(index, el) {
+            if ($(this).is(':checked')) {
+                content.push($(this).next().text());
+                radio_count++;
+            }
+        });
+
+        var $inputCheckbox = $(".right :input:checkbox");
+        var checkbox_count = 1;
+        var va = "|";
+        $inputCheckbox.each(function(index, el) {
+            if ($(this).is(':checked')) {
+                va += $(this).next().text() + "|";
+            }
+        });
+        content.push(va);
+
+        var card = [];
+        $("#show_cards tbody tr td").each(function() {
+            card.push($(this).text());
+        });
+
+        var value = "";
+        for (var i = 0; i < card.length; i++) {
+            if (i % 2 == 0) {
+                value += card[i] + "=";
+            } else {
+                value += card[i] + "|";
+            }
+        }
+
+        content.push(value);
+
+        content.push(text_count);
+        content.push(radio_count);
+        content.push(checkbox_count);
+
+        var client = [];
+        client.push(content[0]);
+        client.push(content[2]);
+        client.push(content[5]);
+        var str = content[5];
+
+        rewriteFile("已营销客户", str, content);
+        // alert("保存成功!");
+        getInfo($("#evidenceNumber").attr("value"));
+        getHasSellClients();
+    }
     $("#saveAsTwo").click(function(event) {
-        writeAllInfo(getPersoninfo());
+        updateInfoBeforeSave();
+        if (checkAllInfo()) {
+            alert("保存用户表失败,请完成所有必填信息再生成用户表");
+        } else {
+            writeAllInfo(getPersoninfo());
+        }
     });
 });

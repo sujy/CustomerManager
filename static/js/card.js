@@ -102,18 +102,36 @@ $(document).ready(function() {
         }
     });
 
+    var freeCardNumber = 0;
+    var freeCardInfo = "";
     $("#add_card").click(function(event) {
         if ($("#free_card").text() == "选择自由宝") {
             $("#show_cards tbody").empty();
         }
         var chosenCard = new Array();
+        var wiriteToPrint = [];
         if ($("#card_info").val() == null) {
             alert("请选择你要添加的卡");
         } else {
             chosenCard = selectCard($("#card_info").val());
             for (var i = 0; i < chosenCard.length; i++) {
                 addtr($("#show_cards tbody"), chosenCard[i][6], chosenCard[i][2]);
+                wiriteToPrint.push(chosenCard[i]);
+                wiriteToPrint.push("|");
             }
+            if ($("#free_card").text() == "选择自由宝") {
+                rewriteFile("打印文件", "卡信息", wiriteToPrint);
+            }else {
+                freeCardNumber++;
+                
+                freeCardInfo += wiriteToPrint.toString() + ",";
+                if(freeCardNumber == 3){
+                    freeCardNumber = 0;
+                    rewriteFile("打印文件", "卡信息", freeCardInfo);
+                }
+               
+            }
+            
         }
         if ($("#free_card" == "取消自由宝")) {
             if ($('#show_cards tbody tr').length > 3) {

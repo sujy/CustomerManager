@@ -1,0 +1,171 @@
+* {
+	padding: 0;
+	margin-top: 0;
+}
+
+.left {
+	width: 100%;
+	height: 300px;
+	border: solid 1px gray;
+	float: left;
+	padding: 10px;
+	overflow: scroll;
+}
+
+.right {
+	margin-top: 5px;
+	width: 100%;
+	height: auto;
+	padding: 10px;
+	border: solid 1px gray;
+	float: left;
+}
+
+.panel {
+	padding: 10px 10px 0 10px;
+}
+
+
+.input_phone, .input_evidence, .input_postcode, .address_province,
+.input_clientLevel,
+.input_unitProvince, .input_unitPostcode, .input_use, .input_limit, 
+.card_email,.card_sellCode,
+.card_person1Phone, .card_person2Phone, .card_inTime, .cardadd_carNumber,
+.cardadd_carDist, .cardadd_hasCardsC{
+	width: 30%;
+	/*float：left;*/
+	display: inline-table;
+}
+
+.input_evidenceNumber, .input_phoneAreaCode, .address_city, 
+.input_want, .card_person2TelephoneCode,
+.input_unitCity, .input_unitPhoneAreaCode, .input_useTime, .input_cardMany, 
+.create_postcode, .card_primarySchool, .card_person1TelephoneCode,
+.cardadd_engineNumber, 
+.cardadd_vipNumber1, .cardadd_hasCardsM{
+	width: 30%;
+	/*float: left;*/
+	display: inline-table;
+	margin-left: 3%;
+}
+
+.create_idLimit, .input_homePhone, .address_area, .input_houseLoan,
+.input_unitArea, .input_unitPhone, .input_dayMoney, .input_clinetLevel, .input_email,
+.create_nation, .card_salary,
+.card_person1Telephone, .card_person2Telephone, .cardadd_carBrand, 
+.cardadd_vipNumber2, .cardadd_hasCardsA{
+	width: 30%;
+	margin-left: 3%;
+	/*float: right;*/
+	display: inline-table;
+}
+
+.address, .input_unit_address, .input_remark{
+	width: 63.5%;
+	display: inline-table;
+}
+
+.card_liveTime, .card_inTime, .input_today{
+	width: 30%;
+	margin-left: 3%;
+	display: inline-table;
+}
+
+.input_name{
+	width: 20%;
+	display: inline-table;
+}
+.input_namePing{
+	width: 35%;
+	display: inline-table;
+}
+.input_birth{
+	width: 30%;
+	display: inline-table;
+}
+.input_sex{
+	width: 10%;
+	margin-left: 0.5%;
+	display: inline-table;
+}
+.input_unit {
+	width: 96.8%;
+	display: inline-table;
+}
+
+
+
+
+
+
+.search_age, .search_useLimit, .search_useTimes, .search_dayMoney, .search_houseLoan{
+   width: 30%;
+   display: inline-table;
+}
+
+#searchArea {
+	border: 1px solid green;
+	padding: 10px;
+}
+
+#search {
+	margin-right: 100px;
+}
+
+#saveAsSell {
+	position: fixed;
+	bottom: 0px;
+	right: 0px;
+	z-index: 100;
+}
+
+#update{
+	position: fixed;
+	bottom: 0px;
+	right: 10px;
+	z-index: 100;
+}
+
+#saveAsTwo {
+	position: fixed;
+	bottom: 0px;
+	right: 90px;
+	z-index: 100;
+}
+
+#printCard {
+	position: fixed;
+	bottom: 0px;
+	right: 240px;
+	z-index: 100;
+}
+
+
+#header {
+	position: fixed;
+	top: 0;
+	background-color: #FFFFFF;
+	border-bottom: solid 1px gray;
+}
+
+#header h1{
+	margin-left: 20px;
+}
+#threeButton {
+	margin-top: 8%;
+}
+
+span{
+	margin-right: 10px;
+}
+
+.cardSelect {
+	clear: both;
+	display: inline-block;
+	position: relative;
+}
+
+.required-input {
+	font-weight: bold;
+	color: red;
+}

@@ -37,14 +37,14 @@ $(document).ready(function() {
       });
       rewriteFile("销售员信息", "销售员信息", infomation);
       var staffInfo = readFile("销售员信息", "销售员信息");
-      var staffMesaage = staff[0].split(",");
+      var staffMesaage = staffInfo[0].split(",");
       window.location.href("main.html" + "?id=" + staffMesaage[1]);
    });
 
    $("#login").click(function(event) {
       /* Act on the event */
       var staffInfo = readFile("销售员信息", "销售员信息");
-      var staffMesaage = staff[0].split(",");
+      var staffMesaage = staffInfo[0].split(",");
       window.location.href("main.html" + "?id=" + staffMesaage[1]);
    });
 });

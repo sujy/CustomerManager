@@ -115,9 +115,11 @@ function readCard(){
 //按照条件筛选
 //筛选值 最小值 最大值 要筛选的二维数组
 function filter(key, value_small, value_big, passlist) {
+
+   // alert(key + "-" +value_small+ "-" +value_big+ "-" +passlist);
    //read the user data to array
-   var Existlist = readFile("存量客户", "存量客户");
-   var allUser = transfertoTwoDimension(Existlist);
+   // var Existlist = readFile("存量客户", "存量客户");
+   var allUser = passlist;
    var filter_list = [];
    var result = [];
 
@@ -137,9 +139,10 @@ function filter(key, value_small, value_big, passlist) {
       if (i == key)
          filter_data = dic[i];
    }
-   alert(filter_data);
    if (filter_data == null)
       alert("找不到筛选条件");
+
+
 
    //从总数据中找到要符合要求的数据 即没有改变传入数组
    for (var i = 0; i < passlist.length; i++) {
@@ -149,8 +152,8 @@ function filter(key, value_small, value_big, passlist) {
          }
       }
    }
-   alert(filter_list);
 
+   
    //开始筛选
    if (filter_list.length < 1) {
       alert("搜索不到符合条件的客户");
@@ -164,20 +167,17 @@ function filter(key, value_small, value_big, passlist) {
             if (filter_birth >= value_small &&
                filter_birth <= value_big) {
                result.push(filter_list[i]);
-               alert(filter_birth + " " + value_small + " " + value_big)
             }
          }
       } else {
          //其他情况筛选
          for (var i = 0; i < filter_list.length; i++) {
-            if (filter_list[i][filter_data] >= value_small &&
-               filter_list[i][filter_data] <= value_big) {
-               result.push(filter_list[i]);
-               alert(filter_list[i][filter_data] + " " + value_small + " " + value_big)
+            if (parseFloat(filter_list[i][filter_data]) >= parseFloat(value_small) &&
+               parseFloat(filter_list[i][filter_data]) <= parseFloat(value_big)) {
+               result.push(filter_list[i]);          
             }
          }
       }
-      alert(result);
    }
    return result;
 }
@@ -205,8 +205,8 @@ function rewriteFile(directory, filename, content){
    }
 }
 
-var list = readFile("存量客户", "存量客户");
-var passlist = transfertoTwoDimension(list);
-// filter("半年日均资产", 0, 1285514, passlist);
+// var list = readFile("存量客户", "存量客户");
+// var passlist = transfertoTwoDimension(list);
+// alert(filter("灵通卡使用期限", 0, 80000, passlist));
 
-readCard();
+// readCard();
