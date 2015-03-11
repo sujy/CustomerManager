@@ -3,7 +3,7 @@ CustomerManager
 
 Customer Manager
 
-This is a Loccal website to manager clients and help you can create a credit card faster than before.
+This is a Local website to manager clients and help you can create a credit card faster than before.
 
 You can use this system to complete the client's infomation, also, you can manager the client which you had been selling.
 
